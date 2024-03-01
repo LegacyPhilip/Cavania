@@ -24,10 +24,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.cavania.R
+import utilities.Screen
 
 @Composable
-fun homeScreen(){
+fun homeScreen(navController: NavController){
     Column(
         horizontalAlignment =  Alignment.CenterHorizontally,
         modifier = Modifier
@@ -67,7 +69,7 @@ fun homeScreen(){
         )
         Spacer(modifier = Modifier.height(100.dp))
 
-        Button(onClick = { /*TODO*/ },
+        Button(onClick = { navController.navigate(Screen.HotLine2.route) },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xffe3271e)
             ),

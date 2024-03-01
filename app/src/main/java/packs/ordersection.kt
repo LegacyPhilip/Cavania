@@ -44,12 +44,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.cavania.R
 import utilities.Wearables
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OrderSummary(){
+fun OrderSummary(navController: NavController){
     var quantity by remember { mutableStateOf("") }
     LazyColumn(
         modifier = Modifier

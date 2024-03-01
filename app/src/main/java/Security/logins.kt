@@ -30,11 +30,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.cavania.R
+import utilities.Screen
 import utilities.Wearables
 
 @Composable
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
 
 
     Column (
@@ -68,7 +70,7 @@ fun LoginScreen(){
 
         Wearables().Login()
         Spacer(modifier = Modifier.height(80.dp))
-        Button(onClick = { /*TODO*/ },
+        Button(onClick = { navController.navigate(Screen.MainView.route) },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xfff3b061)
             ),
@@ -104,7 +106,7 @@ fun LoginScreen(){
 
             )
 
-            TextButton(onClick = {  },
+            TextButton(onClick = { navController.navigate(Screen.CreateHome.route) },
                 colors = ButtonDefaults.buttonColors(
                     containerColor =  Color.Unspecified,
 //                    contentColor = Color(0XFF000000)

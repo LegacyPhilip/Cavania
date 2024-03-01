@@ -35,13 +35,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.cavania.R
+import utilities.Screen
 import utilities.Wearables
 
 @OptIn(ExperimentalMaterial3Api::class)
 
 @Composable
-fun AccountSign(){
+fun AccountSign(navController: NavController){
 //    var showDialog by remember { mutableStateOf(false) }
    var fullName by remember { mutableStateOf(false)}
     var phoneNumber by remember{mutableStateOf (false)}
@@ -78,24 +80,7 @@ fun AccountSign(){
 
 
         Wearables().createAccount()
-        Spacer(modifier = Modifier.height(20.dp))
-        Button(onClick = { /*TODO*/ },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xfff3b061)
-            ),
-            modifier = Modifier
-                .fillMaxWidth(0.5f)
-                .offset(y = 12.dp)
 
-        ) {
-            Text(text = "Join",
-                style = TextStyle(
-                    fontSize = 20.sp
-                ),
-                modifier = Modifier
-                    .padding(1.dp)
-            )
-        }
         Spacer(modifier = Modifier.height(30.dp))
 
         Row(
@@ -115,7 +100,7 @@ fun AccountSign(){
 
             )
 
-            TextButton(onClick = {  },
+            TextButton(onClick = { navController.navigate(Screen.Login.route) },
                 colors = ButtonDefaults.buttonColors(
                     containerColor =  Color.Unspecified,
 //                    contentColor = Color(0XFF000000)

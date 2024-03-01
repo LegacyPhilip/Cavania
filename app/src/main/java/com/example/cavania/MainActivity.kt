@@ -8,11 +8,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import com.example.cavania.ui.theme.CavaniaTheme
 import packs.BeanchMark
 import packs.DescriptiveDetail
 import packs.HomeView
 import packs.OrderSummary
+import utilities.NavigatingPanel
+import utilities.Screen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +27,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(0xfffffcf3)
                 ) {
-                    HomeView()
+                    NavigatingPanel()
+//                    AccountSign(navController = navController.navigate(Screen.MainView.route))
+//                    BeanchMark()
+//                    DescriptiveDetail()
+
+
+
                 }
             }
         }

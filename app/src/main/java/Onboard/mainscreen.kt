@@ -19,10 +19,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.cavania.R
 
 @Composable
-fun screenOne(){
+fun screenOne(navController: NavController){
     Column(
         horizontalAlignment =  Alignment.CenterHorizontally,
 //        verticalArrangement = Arrangement.Center,

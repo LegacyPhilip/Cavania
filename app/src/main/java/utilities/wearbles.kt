@@ -39,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -53,12 +54,21 @@ public class Wearables {
 
     @Composable
     fun createAccount(){
+        println("Welcome to food hub")
         var fullName by remember { mutableStateOf("")}
         var phoneNumber by remember{mutableStateOf ("")}
         var passcode by remember{mutableStateOf("")}
         var cPasscode by remember{mutableStateOf("")}
 
+        var colorname =  Color(0xFF000DFF)
 
+//fun checker (){
+//    if(fullName == null){
+//        println("check and verify")
+//    } else {
+//        println("ok")
+//    }
+//}
            OutlinedTextField(
             value = fullName,
             onValueChange = { fullName = it },
@@ -77,7 +87,7 @@ public class Wearables {
                        style =  TextStyle(
                            fontSize = 17.sp,
                            fontWeight = FontWeight.Bold,
-                           color = Color(0xFF696868)
+                           color = colorname
                        )
                    )
                },
@@ -196,7 +206,30 @@ public class Wearables {
             },
 
             )
+        Spacer(modifier = Modifier.height(20.dp))
+        Button(
+            onClick = {
 
+                    println("Hello ")
+//                navController.navigate(Screen.MainView.route)
+
+            },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xfff3b061)
+            ),
+            modifier = Modifier
+                .fillMaxWidth(0.5f)
+                .offset(y = 12.dp)
+
+        ) {
+            Text(text = "Join",
+                style = TextStyle(
+                    fontSize = 20.sp
+                ),
+                modifier = Modifier
+                    .padding(1.dp)
+            )
+        }
 
     }
 
@@ -376,108 +409,174 @@ fun Login(){
     @Composable
     fun GreatTaste(){
         Spacer(modifier = Modifier.height(26.dp))
+
+    Box (
+        modifier = Modifier
+
+            .fillMaxWidth()
+//                    .fillMaxHeight(0.9f)
+            .border(1.dp, Color(0x19706646))
+//            .padding(start = 18.dp, end = 20.dp)
+            .background(Color(0xFFFFFFFF))
+            .shadow(
+                elevation = 6.dp,
+                spotColor = Color(0x3BEE5A5A),
+                ambientColor = Color.Red,
+
+            )
+    ){
         Row(
             modifier = Modifier
-                .border(1.dp, Color(0x14A2A1A1))
-//                .padding(5)
-//                .padding(start = 22.dp, end = 22.dp)
-                .fillMaxWidth()
-                .fillMaxHeight(0.5f)
-                .background(Color(0xFFFFFFFF))
-//                .shadow(
-//                    elevation = 1.dp,
-//                    ambientColor = Color(0xFFFF0000),
-//                    spotColor = Color(0xFFB6B3B3),
-//                    shape = RoundedCornerShape(2.dp)
-//
-//                )
-        ){
+//                        .fillMaxWidth()
+
+        ) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .fillMaxWidth(0.4f)
+//                        .background(Color(0x51F7F6F6), RoundedCornerShape(100))
+//                        .offset(x = 20.dp)
+            ) {
+
+                Image(
+                    painter = painterResource(id = R.drawable.listing4),
+                    contentDescription = null,
+//                    tint = Color.Unspecified,
+                    modifier = Modifier
+                        .size(115.dp)
+//                            .padding(6.dp)
+                        .offset(x = -(15).dp, y = 9.dp)
+                    //                          .border(20.dp, Color.White, RoundedCornerShape(10))
+
+                )
+            }
+            
             Box (
                 modifier = Modifier
-                    .fillMaxWidth(0.5f)
-                    .padding(5.dp)
+                    .fillMaxWidth()
+//                    .border(1.dp, Color.Red)
+                    .padding(10.dp)
             ){
-                Image(
-                    painter = painterResource(id = R.drawable.listing3),
-                    contentDescription = null,
-                    //                contentScale = ContentScale.Crop,
+                Column (
                     modifier = Modifier
-                        .size(104.dp)
-                    //                    .offset(x = -(10).dp)
-                    //                        .border(1.dp, Color.Red)
-                )
-            }
-            Column (
-                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .border(1.dp, Color.Black)
+                        .offset(x = -(20.dp))
+                ){
 
-//                    .padding(12.dp)
-            ){
+                    Button(
+                        onClick = { /*TODO*/ },
 
-                Button(onClick = { /*TODO*/ },
+                        modifier = Modifier
+//                        .width(70.dp)
+                            .height(29.dp)
+                            .offset(x = 167.dp, y = (3.dp))
 
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor =  Color(0xffffda05)
-                    ),
-                    modifier = Modifier
-                        .width(120.dp)
-                        .height(32.dp)
-                        .offset(x = 66.dp, y = 15.dp)
+                        ,
+                        elevation = ButtonDefaults.buttonElevation(
+                            defaultElevation = 10.dp,
+//                               pressedElevation = 50.dp
+                        ) ,
 
-                ) {
+                        shape = RoundedCornerShape(topStart = 8.dp, bottomStart = 8.dp) ,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFFFF6F00)
+                        )
+
+                    ) {
+                        Text(
+                            text = "View",
+                            style = TextStyle(
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 12.sp,
+                            ),
+
+                            )
+                    }
                     Text(
-                        text = "Order Now",
+                        text = "30% DISCOUNT ",
                         style = TextStyle(
                             fontWeight = FontWeight.Bold,
-                            fontSize = 14.sp,
-                            color = Color(0xffffffff)
+                            fontSize = 16.sp,
+                        ),
+
+                        )
+                    Text(
+                        text = "Get 30% discount on every meal you buy from China's food on cavania.",
+                        style = TextStyle(
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 10.sp,
+                            color = Color(0xD0363535),
+                            textAlign =  TextAlign.Justify
                         ),
                         modifier = Modifier
-//                        .padding(10.dp)
+//                        .width(350.dp)
+                            .offset(x = 6.dp, y = 5.dp)
+//                            .padding(10.dp)
+                            .fillMaxWidth()
                     )
+                    Text(
+                        text = "#China's food",
+                        style = TextStyle(
+                            fontWeight = FontWeight.Light,
+                            fontSize = 14.sp,
+                            color = Color(0xE6686767)
+                        ),
+                        modifier = Modifier
+//                        .width(350.dp)
+                            .offset(x = 126.dp, y = 15.dp)
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
                 }
-                Text(
-                    text = "Experience a new taste",
-                    style = TextStyle(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 17.sp,
-                        color = Color(0xffffda05)
-                    ),
-                    modifier = Modifier
-                        .offset(x = -(45).dp, y = 26.dp)
-//                        .padding(10.dp)
-                )
-
-                Text(
-                    text = "get the best of taste from the comfort of your home, enjoy the richness of good egusi soup in every sallow",
-
-                    style = TextStyle(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 10.sp,
-                        color = Color(0xff808080)
-                    ),
-                    modifier = Modifier
-                        .offset(x = -(45).dp, y = 25.dp)
-//                        .padding(10.dp)
-                )
-
-                Text(
-                    text = "#China's Taste",
-                    style = TextStyle(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 14.sp,
-                        color = Color(0xffffda05)
-                    ),
-                    modifier = Modifier
-                        .offset(x = 66.dp, y = 30.dp)
-//                        .padding(10.dp)
-                )
             }
 
+            //                [][][]][][][][][ Name ][][][][][][][][]
+
+//            Column(
+//                modifier = Modifier
+//                    .offset(x = 10.dp, y = 20.dp)
+//                    .padding(15.dp)
+//            ) {
+//                Text(
+//                    text = "Chian's  Collection",
+//                    style = TextStyle(
+//                        fontWeight = FontWeight.Bold,
+//                        fontSize = 14.sp,
+//                    ),
+//
+//                    )
+//
+//                Text(
+//                    text = "Sweetness comes with passion",
+//                    style = TextStyle(
+//                        fontWeight = FontWeight.Light,
+//                        fontSize = 14.sp,
+//                        color = Color(0xE6686767)
+//                    ),
+//
+//                    )
+//
+//                Text(
+//                    text = "Get 15% discount on every meal you buy from cavania.",
+//                    style = TextStyle(
+//                        fontWeight = FontWeight.Bold,
+//                        fontSize = 10.sp,
+//                        color = Color(0xD0363535),
+//                        textAlign =  TextAlign.Justify
+//                    ),
+//                    modifier = Modifier
+////                        .width(350.dp)
+//                        .offset(x = 6.dp, y = 5.dp)
+////                            .padding(10.dp)
+//                        .fillMaxWidth(0.7f)
+//                )
+//
+//            }
 
         }
     }
+
+    }
+
+
 
     @Composable
     fun HeadingSection(){
@@ -791,8 +890,8 @@ fun Login(){
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(1f)
-                .border(1.dp, Color(0x19F7EABF))
-                .padding(start = 18.dp, end = 20.dp)
+//                .border(1.dp, Color(0x19F7EABF))
+//                .padding(start = 18.dp, end = 20.dp)
                 .background(Color(0xFFFFFFFF), RoundedCornerShape(topEnd = 20.dp))
                 .shadow(
                     elevation = 4.dp,
@@ -950,5 +1049,22 @@ fun Login(){
             }
         }
     }
+
+//    @Composable
+//    fun IconButtonWithText(
+//        icon: Painter,
+//        text: String,
+//        onClick: () -> Unit
+//    ) {
+//        Row {
+//            IconButton(onClick = onClick) {
+//                Icon(
+//                    Painter = icon,
+//                    contentDescription = null // Optional, provide content description if needed
+//                )
+//            }
+//            Text(text = text)
+//        }
+//    }
 
 }
